@@ -1,24 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Smart :endpoint="endpoint" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Smart from "./components/Smart.vue";
 
 export default {
-  name: 'app',
+  name: "App",
   components: {
-    HelloWorld
+    Smart
+  },
+  data: () => ({
+    endpoint: null
+  }),
+  mounted() {
+    setTimeout(() => (this.endpoint = "/coins/btc-bitcoin"), 1500);
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
